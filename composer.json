@@ -1,0 +1,28 @@
+{
+    "name": "dissanayake/everest",
+    "type": "library",
+    "authors": [
+        {
+            "name": "dissanayake"
+        }
+    ],
+    "minimum-stability": "dev",
+
+    "autoload": {
+		"psr-4": {
+			"Dissanayake\\Everest\\": "src/",
+        	"Dissanayake\\Everest\\App\\": "app/"
+		}
+	},
+	"require": {
+		 "illuminate/support": "^10.0",
+         "livewire/livewire": "^3.5"
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Dissanayake\\Everest\\ServiceProviders\\EverestServiceProvider"
+			]
+		}
+	}
+}
