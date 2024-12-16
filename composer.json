@@ -1,22 +1,35 @@
 {
-    "name": "dissanayake/everest",
-    "type": "library",
-    "authors": [
-        {
-            "name": "dissanayake"
-        }
-    ],
-    "minimum-stability": "dev",
-
-    "autoload": {
+	"name": "dissanayake/everest",
+	"type": "library",
+	"authors": [
+		{
+			"name": "dissanayake"
+		}
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"php": "^8.1",
+		"illuminate/support": "^10.0",
+		"livewire/livewire": "^3.5"
+	},
+	"autoload": {
 		"psr-4": {
 			"Dissanayake\\Everest\\": "src/",
-        	"Dissanayake\\Everest\\App\\": "app/"
+			"Dissanayake\\Everest\\App\\": "app/"
 		}
 	},
-	"require": {
-		 "illuminate/support": "^10.0",
-         "livewire/livewire": "^3.5"
+	"autoload-dev": {
+		"psr-4": {
+			"Dissanayake\\Everest\\Tests\\": "tests/"
+		}
+	},
+	"scripts": {
+		"post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+		"analyse": "vendor/bin/phpstan analyse",
+		"test": "vendor/bin/pest",
+		"test-coverage": "vendor/bin/pest --coverage",
+		"format": "vendor/bin/pint"
 	},
 	"extra": {
 		"laravel": {
